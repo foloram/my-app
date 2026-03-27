@@ -6,7 +6,7 @@ import { Cart } from "./pages/Cart";
 import { Shop } from "./pages/Shop";
 import { Login } from "./pages/Login";
 import { Contact } from "./pages/Contact";
-
+import { ShopContextProvider } from "./context/ShopContext";
 import { MainLayout } from "./Layouts/MainLayout";
 import { Provider } from "react-redux";
 
@@ -16,16 +16,18 @@ function App() {
     <div>
       <Provider store={store}>
         <QueryClientProvider client={client}>
-          <Router>
-            <Routes>
-              <Route element={<MainLayout />}>
-                <Route path="/" element={<Shop />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/contact" element={<Contact />} />
-              </Route>
-            </Routes>
-          </Router>
+          <ShopContextProvider>
+            <Router>
+              <Routes>
+                <Route element={<MainLayout />}>
+                  <Route path="/" element={<Shop />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/login" element={<Login />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Route>
+              </Routes>
+            </Router>
+          </ShopContextProvider>
         </QueryClientProvider>
       </Provider>
     </div>

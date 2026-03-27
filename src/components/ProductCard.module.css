@@ -50,3 +50,14 @@
 .APIContainerButton:hover {
   background-color: #546e7a;
 }
+
+.APIContainerCart {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(260px, 260px));
+
+  justify-content: center;
+
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+}
