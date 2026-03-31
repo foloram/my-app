@@ -24,7 +24,6 @@ export const ShopContextProvider = (props) => {
           title: item.title || item.name,
           price: item.price,
           image: item.images?.[0] || item.image,
-          count: 1,
         },
       ];
     });

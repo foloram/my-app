@@ -20,7 +20,11 @@ export function Cart() {
       <div className={style.APIContainerCart}>
         {cartItem.map((item) => (
           <div key={item.id} className={style.APIContainerItem}>
-            <img src={item.image} className={style.APIContainerImage} />
+            <img
+              src={item.image}
+              className={style.APIContainerImage}
+              alt={item.title}
+            />
             <h6> {item.title}</h6>
             <p>{item.price}$</p>
             <p>Quantity : {item.count} </p>

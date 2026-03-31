@@ -7,7 +7,7 @@ import { ShopContext } from "../context/ShopContext";
 import { useProducts } from "../hooks/useProducts";
 
 export function Shop() {
-  const { username, isAuth } = useSelector((state) => state.user);
+  const { username } = useSelector((state) => state.user);
   const { addToCart } = useContext(ShopContext);
 
   const { data, isLoading, isError, error } = useProducts();

@@ -15,11 +15,7 @@ export function Contact() {
     submit: yup.string(),
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: yupResolver(schema) });
+  const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
   const onFormSubmit = (data) => {
     console.log(data);

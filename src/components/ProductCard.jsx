@@ -11,7 +11,7 @@ export function ProductCard({ item }) {
   const image =
     item.images?.[0] || item.image || "https://via.placeholder.com/200";
 
-  const { addToCart, removeFromCart, cartItem } = useContext(ShopContext);
+  const { addToCart } = useContext(ShopContext);
 
   const navigate = useNavigate();
 
@@ -22,7 +22,7 @@ export function ProductCard({ item }) {
 
   return (
     <div className={style.APIContainerItem}>
-      <img src={image} className={style.APIContainerImage}></img>
+      <img src={image} className={style.APIContainerImage} alt={title}></img>
       <h6>{title}</h6>
       <p>{price} $</p>
       <button className={style.APIContainerButton} onClick={handleAdd}>
