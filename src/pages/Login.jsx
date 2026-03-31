@@ -18,13 +18,13 @@ export function Login() {
           <input
             type="text"
             className={style.containerInput}
-            placeholder="inter your username"
+            placeholder="Enter your username"
             onChange={(event) => setNewUser(event.target.value)}
           ></input>
           <input
             type="password"
             className={style.containerInput}
-            placeholder="inter your password"
+            placeholder="Enter your password"
           ></input>
           {!isAuth ? (
             <button
