@@ -23,7 +23,7 @@ export function Contact() {
     setSubmitted(true);
   };
 
-  const { username, isAuth } = useSelector((state) => state.user);
+  const { username } = useSelector((state) => state.user);
   return (
     <div>
       <h2>Contact</h2>
