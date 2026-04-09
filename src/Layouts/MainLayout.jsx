@@ -2,6 +2,8 @@ import { Outlet } from "react-router-dom";
 import { Navigation } from "../components/Nav";
 import { Footer } from "../components/Footer";
 
+// REVIEW: Heavy use of inline styles throughout this component is inconsistent with
+// the rest of the project which uses CSS modules. Extract these into a MainLayout.module.css.
 export function MainLayout() {
   return (
     <div

@@ -10,6 +10,9 @@ import { ShopContextProvider } from "./context/ShopContext";
 import { MainLayout } from "./Layouts/MainLayout";
 import { Provider } from "react-redux";
 
+// REVIEW: QueryClient is created inside the component, so a new instance is created on every
+// render. This defeats caching and causes unnecessary refetches. Move it outside the component
+// (e.g., `const client = new QueryClient();` at module level) or wrap in useRef/useMemo.
 function App() {
   const client = new QueryClient();
   return (

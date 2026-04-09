@@ -38,6 +38,8 @@ export function Navigation() {
               Contact
             </Nav.Link>
           </Nav>
+          {/* REVIEW: This search form is non-functional — no onSubmit handler, no state
+              binding, and no search logic. Either implement search functionality or remove it. */}
           <Form className="d-flex">
             <Form.Control
               type="search"

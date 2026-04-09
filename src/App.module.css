@@ -1,3 +1,5 @@
+/* REVIEW: This entire file is unused — no component imports App.module.css.
+   These are leftover CRA defaults. Delete this file. */
 .App {
   text-align: center;
 }

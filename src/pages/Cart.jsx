@@ -7,6 +7,8 @@ export function Cart() {
 
   if (cartItem.length === 0) return <h5>Your cart is empty 🛒</h5>;
 
+  // REVIEW: Variable is named "totalItems" but actually computes the total price.
+  // Rename to "totalPrice" to avoid confusion.
   const totalItems = cartItem.reduce(
     (sum, item) => sum + item.price * item.count,
     0,

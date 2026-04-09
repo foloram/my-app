@@ -3,6 +3,8 @@ import { useQuery } from "@tanstack/react-query";
 
 export function useProducts() {
   return useQuery({
+    // REVIEW: queryKey must be an array in TanStack Query v5 (e.g., ["products"]).
+    // A plain string will cause warnings or unexpected behavior.
     queryKey: "products",
     queryFn: async () => {
       const freeAPI = Axios.get(
@@ -15,6 +17,8 @@ export function useProducts() {
         "https://dummyjson.com/products/category/kitchen-accessories",
       );
 
+      // REVIEW: If any single API fails, Promise.all rejects and the entire query fails.
+      // Consider using Promise.allSettled() to gracefully handle partial failures.
       const [freeAPIRes, freeAPI2Res, freeAPI3Res] = await Promise.all([
         freeAPI,
         freeAPI2,
@@ -26,6 +30,8 @@ export function useProducts() {
         .map((item) => ({
           ...item,
           price:
+            // REVIEW: Math.random() as a price fallback means prices change on every refetch,
+            // causing inconsistent UI. Use a deterministic fallback (e.g., based on item.id) or 0.
             item.price ??
             item.cost ??
             item.mrp ??

@@ -17,6 +17,9 @@ export function ProductCard({ item }) {
 
   const handleAdd = () => {
     addToCart(item);
+    // REVIEW: Relative path "./cart" may resolve incorrectly depending on the current route.
+    // Use an absolute path "/cart" instead. Also, force-navigating to the cart on every
+    // add-to-cart click is disruptive UX — consider a toast notification instead.
     navigate("./cart");
   };
 
