@@ -15,6 +15,7 @@ export const ShopContextProvider = (props) => {
           i.id === item.id ? { ...i, count: i.count + 1 } : i,
         );
       }
+      // REVIEW: Remove console.log before production — debug logging left in code.
       console.log("item added to cart", item);
       return [
         ...prev,

@@ -10,14 +10,21 @@ export function Contact() {
 
   const schema = yup.object().shape({
     name: yup.string().required("Name is required"),
+    // REVIEW: Missing .email() validation — any string is accepted as a valid email.
+    // Should be: yup.string().email("Invalid email").required("Email is required")
     email: yup.string().required("Email is required"),
     message: yup.string().required("Message is required"),
+    // REVIEW: The submit button should not be registered as a form field. Remove this
+    // from the schema and remove {...register("submit")} from the submit input below.
     submit: yup.string(),
   });
 
+  // REVIEW: formState.errors is not destructured here, so validation errors are never
+  // displayed to the user. Destructure errors and render them below each field.
   const { register, handleSubmit } = useForm({ resolver: yupResolver(schema) });
 
   const onFormSubmit = (data) => {
+    // REVIEW: Remove console.log statements before production.
     console.log(data);
     console.log("it was submitted");
     setSubmitted(true);

@@ -1,3 +1,6 @@
+// REVIEW: This file is named Store.jsx but contains no JSX — rename to Store.js.
+// Also, combining the slice definition and store configuration in a single file
+// will not scale well. Consider separating into slices/userSlice.js and store.js.
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({

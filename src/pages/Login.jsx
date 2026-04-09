@@ -21,6 +21,9 @@ export function Login() {
             placeholder="Enter your username"
             onChange={(event) => setNewUser(event.target.value)}
           ></input>
+          {/* REVIEW: The password field has no state or onChange handler — its value is
+              never captured. Either store the password in state and include it in the
+              login logic, or remove the field if authentication doesn't require it. */}
           <input
             type="password"
             className={style.containerInput}
@@ -30,6 +33,8 @@ export function Login() {
             <button
               type="button"
               className={style.containerButton}
+              // REVIEW: No validation — an empty username can be dispatched.
+              // Add a check like `if (!newUser.trim()) return;` before dispatching.
               onClick={() => dispatch(login({ username: newUser }))}
             >
               Login
